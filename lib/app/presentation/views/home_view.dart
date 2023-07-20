@@ -13,10 +13,28 @@ class HomeView extends StatelessWidget {
           builder: (context, state) {
             //return const Text('Loading...');
             if(state is InternetConnectedState){
-              return const Text('Connected');
+              return const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Connected'),
+                  Icon(
+                    Icons.wifi,
+                    color: Colors.green,
+                  ),
+                ],
+              );
             }
             else if(state is InternetDisconnectedState){
-              return const Text('Disconnected');
+              return const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Disconnected'),
+                  Icon(
+                    Icons.wifi_off,
+                    color: Colors.red,
+                  ),
+                ],
+              );
             }
             else{
               return const Text('Loading...');
